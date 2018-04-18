@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import Counter from 'components/Counter';
 import { actionCreators as counterActions } from 'reducers/counter';
-import styles from './counter.scss';
+import injectProps from 'hocs/injectProps';
 
+@injectProps({ hasPropInjected: true })
 @connect(
   state => ({
     counter: state.counter.counter,
@@ -14,21 +15,10 @@ import styles from './counter.scss';
     incrementAsync: () => dispatch(counterActions.incrementAsync()),
   }),
 )
-export default class Counter extends React.PureComponent {
-  static propTypes = {
-    counter: PropTypes.number.isRequired,
-    increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired,
-    incrementAsync: PropTypes.func.isRequired,
-  }
+export default class CounterContainer extends React.PureComponent {
   render() {
     return (
-      <div className={styles.wrapper}>
-        <p className={styles.count}>{this.props.counter}</p>
-        <button onClick={this.props.increment}>INCREMENT</button>
-        <button onClick={this.props.decrement}>DECREMENT</button>
-        <button onClick={this.props.incrementAsync}>INCREMENT ASYNC</button>
-      </div>
+      <Counter {...this.props} />
     );
   }
 }
