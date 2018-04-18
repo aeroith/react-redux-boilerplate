@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "experimentalDecorators": true,
+    "paths": {
+      "hocs/*": ["src/hocs/*"],
+      "services/*": ["src/services/*"],
+      "components/*": ["src/components/*"],
+      "containers/*": ["src/containers/*"],
+      "reducers/*": ["src/reducers/*"],
+      "images/*": ["src/assets/img/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
