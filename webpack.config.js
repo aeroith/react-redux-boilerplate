@@ -58,7 +58,6 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './index.html',
-      favicon: './src/assets/img/logo.png',
     }),
     new FaviconsWebpackPlugin('./src/assets/img/logo.png'),
     new webpack.optimize.ModuleConcatenationPlugin(),
