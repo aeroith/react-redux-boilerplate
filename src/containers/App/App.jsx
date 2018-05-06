@@ -6,8 +6,8 @@ import '../../assets/stylesheets/main.scss';
 import styles from './app.scss';
 
 const App = () => (
-  <div className={styles['application-main']}>
-    <img className={styles['application-main__image']} src={FitMan} alt="A fit person" />
+  <div className={styles.applicationMain}>
+    <img className={styles.image} src={FitMan} alt="A fit person" />
     <Counter />
   </div>
 );

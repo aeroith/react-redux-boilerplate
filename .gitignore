@@ -63,3 +63,7 @@ typings/
 
 # webpack build output
 dist/
+
+# Ide specific folders
+.idea/
+.vscode/

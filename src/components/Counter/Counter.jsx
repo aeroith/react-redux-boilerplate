@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
 import styles from './counter.scss';
 
 const Counter = ({
@@ -7,9 +8,11 @@ const Counter = ({
 }) => (
   <div className={styles.wrapper}>
     <p className={styles.count}>{counter}</p>
-    <button onClick={increment}>INCREMENT</button>
-    <button onClick={decrement}>DECREMENT</button>
-    <button onClick={incrementAsync}>INCREMENT ASYNC</button>
+    <div className={styles.buttonContainer}>
+      <Button className={styles.counterButton} type="primary" onClick={increment}>increment</Button>
+      <Button className={styles.counterButton} type="primary" onClick={decrement}>decrement</Button>
+      <Button className={styles.counterButton} type="primary" onClick={incrementAsync}>increment async</Button>
+    </div>
   </div>
 );
 

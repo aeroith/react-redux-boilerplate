@@ -7,3 +7,12 @@
 .count {
   font-size: 8rem;
 }
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+}
+.counterButton {
+  &:not(first-child) {
+    margin-top: 1rem;
+  }
+}

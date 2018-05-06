@@ -1,15 +1,15 @@
 @import "animations";
 
-.application-main {
+.applicationMain {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  &__image {
-    width: 20rem;
-    height: 20rem;
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-  }
+}
+.image {
+  width: 20rem;
+  height: 20rem;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }

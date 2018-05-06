@@ -1,7 +1,11 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const fs = require('fs');
 const webpack = require('webpack');
 const path = require('path');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const lessToJs = require('less-vars-to-js');
+
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, './src/assets/stylesheets/ant-default-vars.less'), 'utf8'));
 
 module.exports = {
   entry: [
@@ -32,6 +36,19 @@ module.exports = {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              modifyVars: themeVariables,
+            },
+          },
+        ],
+      },
       { test: /\.(png|jpg|gif)$/, use: 'url-loader?limit=15000&name=[name]-[hash].[ext]' },
       { test: /\.eot(\?v=\d+.\d+.\d+)?$/, use: 'file-loader' },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
@@ -40,7 +57,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss'],
+    extensions: ['.js', '.jsx', '.scss', '.less'],
     alias: {
       images: path.join(__dirname, '/src/assets/img'),
       variables: path.join(__dirname, '/src/assets/stylesheets/abstracts/_variables'),
