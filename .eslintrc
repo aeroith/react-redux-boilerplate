@@ -1,40 +1,47 @@
 {
   "parser": "babel-eslint",
+  "plugins": [
+    "prettier"
+  ],
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
-  "ecmaFeatures": {
-    "jsx": true,
-    "es6": true,
-    "classes": true
-  },
-  "extends": "airbnb",
+  "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react/recommended"],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "linebreak-style": 0,
-    "global-require": 0,
-    "eol-last": 0,
-    "spaced-comment": 0,
-    "new-cap": [2, { "capIsNewExceptions": ["Map"] }],
-    "react/prefer-stateless-function": [
-      2, { "ignorePureComponents": true }
-    ],
-    "react/forbid-prop-types": [0, { "forbid": [] }],
-    "import/no-extraneous-dependencies": [
-      "error",
+    "jsx-a11y/interactive-supports-focus": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "react/no-multi-comp": 0,
+    "jsx-a11y/href-no-hash": 0,
+    "jsx-a11y/anchor-has-content": 0,
+    "jsx-a11y/anchor-is-valid": [
       {
-        "devDependencies": true,
-        "optionalDependencies": false,
-        "peerDependencies": false
+        "components": ["Link"]
       }
-    ]
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "webpack.dev.js"
-      }
-    }
+    ],
+    "import/extensions": 0,
+    "object-curly-spacing": ["off"],
+    "padded-blocks": ["off"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": ["off"],
+    "quotes": ["error", "single"],
+    "no-underscore-dangle": 0,
+    "import/no-unresolved": ["error", {
+        "ignore": [
+          "config",
+          "components/",
+          "assets/",
+          "containers/",
+          "constants/",
+          "stores/",
+          "actions/",
+          "sources/",
+          "styles/",
+          "utils/",
+          "reducers/"
+        ]
+    }]
   }
 }
